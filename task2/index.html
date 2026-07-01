@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namoza Orthopedic Consultation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .navbar{
+position:sticky;
+top:0;
+background:white;
+box-shadow:0 2px 20px rgba(0,0,0,.08);
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
+
+.logo{
+font-size:26px;
+font-weight:800;
+color:#2563eb;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:600;
+}
+
+.nav-btn{
+background:#2563eb;
+color:white;
+padding:12px 24px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+}
+
+.nav-btn:hover{
+background:#1d4ed8;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8fafc;
+color:#222;
+line-height:1.6;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+padding:50px 20px;
+}
+
+.hero{
+position:relative;
+overflow:hidden;
+background:linear-gradient(135deg,#0F172A,#2563EB);
+color:white;
+padding:120px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:58px;
+font-weight:800;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+margin-bottom:35px;
+}
+
+.btn{
+background:#2563eb;
+color:white;
+padding:18px 36px;
+text-decoration:none;
+border-radius:12px;
+display:inline-block;
+font-size:18px;
+font-weight:700;
+transition:.3s;
+}
+
+.badge{
+display:inline-block;
+background:#DBEAFE;
+color:#1D4ED8;
+padding:10px 18px;
+border-radius:50px;
+font-weight:600;
+margin-bottom:25px;
+}
+
+.btn:hover{
+background:#1d4ed8;
+transform:translateY(-3px);
+}
+
+.trust{
+background:white;
+text-align:center;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+width:260px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.35s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 25px 50px rgba(37,99,235,.15);
+}
+
+.card h3{
+font-size:34px;
+color:#2563EB;
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+}
+
+.form-section{
+padding:60px 20px;
+text-align:center;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:18px;
+max-width:420px;
+margin:auto;
+}
+
+input{
+padding:15px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+select,
+textarea{
+padding:15px;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+button{
+padding:15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+#thankYouMessage{
+margin-top:25px;
+color:green;
+font-weight:bold;
+}
+.hero::before{
+content:"";
+position:absolute;
+width:250px;
+height:250px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+top:50px;
+left:80px;
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(25px);
+}
+
+100%{
+transform:translateY(0);
+}
+}
+footer{
+background:#0F172A;
+color:white;
+padding:60px 20px;
+text-align:center;
+margin-top:60px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:30px;
+}
+
+.stats{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">NAMOZA</div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#trust">Clinics</a></li>
+            <li><a href="#consultation-form">Consultation</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <a href="#consultation-form" class="nav-btn">
+            Book Now
+        </a>
+    </div>
+</nav>
+
+    <header class="hero">
+    <div class="container">
+
+        <span class="badge">
+            Trusted by 10,000+ Patients
+        </span>
+
+        <h1>
+            Get Expert Orthopaedic Advice
+            Without Waiting Weeks
+        </h1>
+
+        <p>
+            Book a consultation with experienced orthopaedic specialists across Bangalore.
+        </p>
+
+        <a href="#consultation-form" class="btn">
+            Book Consultation
+        </a>
+
+    </div>
+</header>
+    <section id="trust" class="trust">
+    <div class="container">
+
+        <h2>Why Choose Namoza?</h2>
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>🏥</h3>
+                <h2>9+</h2>
+                <p>Clinics Across Bangalore</p>
+            </div>
+
+            <div class="card">
+                <h3>😊</h3>
+                <h2>10,000+</h2>
+                <p>Patients Treated</p>
+            </div>
+
+            <div class="card">
+                <h3>⭐</h3>
+                <h2>4.9/5</h2>
+                <p>Patient Satisfaction</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="features">
+
+<div class="container">
+
+<h2>Why Choose Namoza?</h2>
+
+<div class="stats">
+
+<div class="card">
+<h3>⚡</h3>
+<p>Same Day Consultation</p>
+</div>
+
+<div class="card">
+<h3>👨‍⚕️</h3>
+<p>Experienced Specialists</p>
+</div>
+
+<div class="card">
+<h3>📍</h3>
+<p>9 Clinics Across Bangalore</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section id="consultation-form" class="form-section">
+    <div class="container">
+
+        <h2>Book Your Consultation</h2>
+        <p>Fill in your details and our team will contact you shortly.</p>
+
+        <form id="leadForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+            <select required>
+
+<option>Select Clinic</option>
+
+<option>Indiranagar</option>
+
+<option>Whitefield</option>
+
+<option>Koramangala</option>
+
+</select>
+
+<input type="date" required>
+
+<textarea
+placeholder="Describe your problem (Optional)">
+</textarea>
+
+            <button type="submit">
+                Book Consultation
+            </button>
+
+        </form>
+
+        <div id="thankYouMessage" style="display:none;">
+    <h2>🎉 Consultation Booked!</h2>
+    <p>Our orthopaedic team will contact you within 24 hours.</p>
+</div>
+
+    </div>
+</section>
+<footer>
+
+<div class="container">
+
+<h3>Namoza</h3>
+
+<p>
+Helping patients connect with expert orthopaedic specialists.
+</p>
+
+<p>
+© 2026 Namoza Healthcare
+</p>
+
+</div>
+
+</footer>
+<script>
+
+window.dataLayer = window.dataLayer || [];
+
+document.getElementById("leadForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const name = document.getElementById("name").value.trim();
+const phone = document.getElementById("phone").value.trim();
+
+if(name.length < 3){
+alert("Please enter a valid name.");
+return;
+}
+
+if(!/^[0-9]{10}$/.test(phone)){
+alert("Please enter a valid 10-digit phone number.");
+return;
+}
+
+dataLayer.push({
+event:"consultation_form_submitted",
+name:name,
+phone:phone
+});
+
+this.style.display="none";
+
+document.getElementById("thankYouMessage").style.display="block";
+
+});
+
+</script>
+
+</body>
+</html>
