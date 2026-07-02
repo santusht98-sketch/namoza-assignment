@@ -4,462 +4,998 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Namoza Orthopedic Consultation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root{
+            --primary:#2563eb;
+            --primary-dark:#1d4ed8;
+            --dark:#0F172A;
+            --badge-bg:#DBEAFE;
+            --badge-text:#1D4ED8;
+            --bg:#f8fafc;
+            --ease: cubic-bezier(.22,1,.36,1);
+        }
+ 
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, Helvetica, Arial, sans-serif;
+        }
+ 
+        html{
+            scroll-behavior:smooth;
+        }
+ 
+        body{
+            background:var(--bg);
+            color:#222;
+            line-height:1.6;
+        }
+ 
+        /* Respect reduced-motion users */
+        @media (prefers-reduced-motion: reduce){
+            *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+        }
+ 
+        :focus-visible{
+            outline:3px solid var(--primary-dark);
+            outline-offset:2px;
+            border-radius:6px;
+        }
+ 
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:auto;
+            padding:50px 20px;
+        }
+ 
+        /* ============ NAVBAR ============ */
         .navbar{
-position:sticky;
-top:0;
-background:white;
-box-shadow:0 2px 20px rgba(0,0,0,.08);
-z-index:1000;
-}
-
-.nav-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-}
-
-.logo{
-font-size:26px;
-font-weight:800;
-color:#2563eb;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-list-style:none;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
-
-.nav-btn{
-background:#2563eb;
-color:white;
-padding:12px 24px;
-border-radius:10px;
-text-decoration:none;
-font-weight:600;
-}
-
-.nav-btn:hover{
-background:#1d4ed8;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#f8fafc;
-color:#222;
-line-height:1.6;
-}
-
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:50px 20px;
-}
-
-.hero{
-position:relative;
-overflow:hidden;
-background:linear-gradient(135deg,#0F172A,#2563EB);
-color:white;
-padding:120px 20px;
-text-align:center;
-}
-
-.hero h1{
-font-size:58px;
-font-weight:800;
-line-height:1.2;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:20px;
-max-width:700px;
-margin:auto;
-margin-bottom:35px;
-}
-
-.btn{
-background:#2563eb;
-color:white;
-padding:18px 36px;
-text-decoration:none;
-border-radius:12px;
-display:inline-block;
-font-size:18px;
-font-weight:700;
-transition:.3s;
-}
-
-.badge{
-display:inline-block;
-background:#DBEAFE;
-color:#1D4ED8;
-padding:10px 18px;
-border-radius:50px;
-font-weight:600;
-margin-bottom:25px;
-}
-
-.btn:hover{
-background:#1d4ed8;
-transform:translateY(-3px);
-}
-
-.trust{
-background:white;
-text-align:center;
-}
-
-.stats{
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-margin-top:35px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:20px;
-width:260px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-transition:.35s;
-cursor:pointer;
-}
-
-.card:hover{
-transform:translateY(-12px);
-box-shadow:0 25px 50px rgba(37,99,235,.15);
-}
-
-.card h3{
-font-size:34px;
-color:#2563EB;
-margin-bottom:10px;
-}
-
-.card p{
-color:#666;
-}
-
-.form-section{
-padding:60px 20px;
-text-align:center;
-}
-
-form{
-display:flex;
-flex-direction:column;
-gap:18px;
-max-width:420px;
-margin:auto;
-}
-
-input{
-padding:15px;
-font-size:16px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-select,
-textarea{
-padding:15px;
-font-size:16px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-
-button{
-padding:15px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-}
-
-button:hover{
-background:#1d4ed8;
-}
-
-#thankYouMessage{
-margin-top:25px;
-color:green;
-font-weight:bold;
-}
-.hero::before{
-content:"";
-position:absolute;
-width:250px;
-height:250px;
-background:rgba(255,255,255,.08);
-border-radius:50%;
-top:50px;
-left:80px;
-animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(25px);
-}
-
-100%{
-transform:translateY(0);
-}
-}
-footer{
-background:#0F172A;
-color:white;
-padding:60px 20px;
-text-align:center;
-margin-top:60px;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:30px;
-}
-
-.stats{
-flex-direction:column;
-align-items:center;
-}
-
-}
-
-</style>
+            position:sticky;
+            top:0;
+            background:rgba(255,255,255,.85);
+            backdrop-filter:blur(10px);
+            box-shadow:0 2px 20px rgba(0,0,0,.06);
+            z-index:1000;
+            transition:box-shadow .3s var(--ease), background .3s var(--ease);
+        }
+        .navbar.scrolled{
+            background:rgba(255,255,255,.97);
+            box-shadow:0 8px 30px rgba(15,23,42,.12);
+        }
+ 
+        .nav-container{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 0;
+        }
+ 
+        .logo{
+            font-size:26px;
+            font-weight:800;
+            color:var(--primary);
+            transition:transform .25s var(--ease);
+            cursor:default;
+        }
+        .logo:hover{ transform:scale(1.05); }
+ 
+        .nav-links{
+            display:flex;
+            gap:30px;
+            list-style:none;
+        }
+ 
+        .nav-links a{
+            position:relative;
+            text-decoration:none;
+            color:#333;
+            font-weight:600;
+            padding-bottom:4px;
+        }
+        /* animated underline on hover */
+        .nav-links a::after{
+            content:"";
+            position:absolute;
+            left:0; bottom:0;
+            width:0%;
+            height:2px;
+            background:var(--primary);
+            transition:width .25s var(--ease);
+        }
+        .nav-links a:hover{ color:var(--primary); }
+        .nav-links a:hover::after{ width:100%; }
+ 
+        .nav-btn{
+            position:relative;
+            overflow:hidden;
+            background:var(--primary);
+            color:white;
+            padding:12px 24px;
+            border-radius:10px;
+            text-decoration:none;
+            font-weight:600;
+            display:inline-block;
+            transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+        }
+        .nav-btn:hover{
+            background:var(--primary-dark);
+            transform:translateY(-2px);
+            box-shadow:0 10px 20px -8px rgba(37,99,235,.55);
+        }
+ 
+        /* ============ HERO ============ */
+        .hero{
+            position:relative;
+            overflow:hidden;
+            background:linear-gradient(135deg,var(--dark),var(--primary));
+            color:white;
+            padding:120px 20px;
+            text-align:center;
+        }
+ 
+        .hero::before{
+            content:"";
+            position:absolute;
+            width:250px;
+            height:250px;
+            background:rgba(255,255,255,.08);
+            border-radius:50%;
+            top:50px;
+            left:80px;
+            animation:float 6s ease-in-out infinite;
+        }
+        /* second ambient blob for depth */
+        .hero::after{
+            content:"";
+            position:absolute;
+            width:340px;
+            height:340px;
+            background:rgba(255,255,255,.06);
+            border-radius:50%;
+            bottom:-80px;
+            right:60px;
+            animation:float 8s ease-in-out infinite reverse;
+        }
+ 
+        @keyframes float{
+            0%{ transform:translateY(0); }
+            50%{ transform:translateY(25px); }
+            100%{ transform:translateY(0); }
+        }
+ 
+        .hero .container{ position:relative; z-index:1; }
+ 
+        .badge{
+            display:inline-block;
+            background:var(--badge-bg);
+            color:var(--badge-text);
+            padding:10px 18px;
+            border-radius:50px;
+            font-weight:600;
+            margin-bottom:25px;
+            animation:fadeUp .7s var(--ease) both;
+        }
+ 
+        .hero h1{
+            font-size:58px;
+            font-weight:800;
+            line-height:1.2;
+            margin-bottom:20px;
+            animation:fadeUp .7s var(--ease) .1s both;
+        }
+ 
+        .hero p{
+            font-size:20px;
+            max-width:700px;
+            margin:auto;
+            margin-bottom:35px;
+            animation:fadeUp .7s var(--ease) .2s both;
+        }
+ 
+        @keyframes fadeUp{
+            from{ opacity:0; transform:translateY(18px); }
+            to{ opacity:1; transform:translateY(0); }
+        }
+ 
+        .btn{
+            position:relative;
+            overflow:hidden;
+            background:var(--primary);
+            color:white;
+            padding:18px 36px;
+            text-decoration:none;
+            border-radius:12px;
+            display:inline-block;
+            font-size:18px;
+            font-weight:700;
+            transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+            animation:fadeUp .7s var(--ease) .3s both;
+        }
+        .btn:hover{
+            background:var(--primary-dark);
+            transform:translateY(-3px);
+            box-shadow:0 16px 30px -10px rgba(37,99,235,.6);
+        }
+        /* shine sweep on hover — subtle, one pass */
+        .btn::after{
+            content:"";
+            position:absolute;
+            top:0; left:-60%;
+            width:40%; height:100%;
+            background:linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+            transform:skewX(-20deg);
+            transition:left .6s var(--ease);
+        }
+        .btn:hover::after{ left:130%; }
+ 
+        /* ============ SCROLL REVEAL ============ */
+        .reveal{
+            opacity:0;
+            transform:translateY(24px);
+            transition:opacity .6s var(--ease), transform .6s var(--ease);
+        }
+        .reveal.is-visible{ opacity:1; transform:translateY(0); }
+ 
+        /* (old .trust/.features/.stats/.card rules removed — replaced by the
+           TRUST / FEATURE — REDESIGNED block further down) */
+ 
+        /* ============ TRUST / FEATURE — REDESIGNED ============ */
+        .trust, .features{
+            position:relative;
+            overflow:hidden;
+            background:white;
+            text-align:center;
+            padding:80px 20px;
+        }
+        .features{ background:var(--bg); }
+ 
+        .trust-decor{
+            position:absolute;
+            width:520px; height:520px;
+            border-radius:50%;
+            background:radial-gradient(circle at 30% 30%, rgba(37,99,235,.10), transparent 70%);
+            top:-160px; right:-160px;
+            pointer-events:none;
+            will-change:transform;
+        }
+        .features-decor{
+            position:absolute;
+            width:460px; height:460px;
+            border-radius:50%;
+            background:radial-gradient(circle at 70% 70%, rgba(37,99,235,.08), transparent 70%);
+            bottom:-140px; left:-140px;
+            pointer-events:none;
+            will-change:transform;
+        }
+ 
+        .section-tag{
+            display:inline-block;
+            font-size:12.5px; font-weight:800; letter-spacing:1.4px;
+            text-transform:uppercase; color:var(--primary);
+            background:var(--badge-bg);
+            padding:6px 14px; border-radius:999px;
+            margin-bottom:14px;
+        }
+        .trust h2, .features h2{
+            font-size:clamp(26px, 4vw, 34px);
+            font-weight:800; color:var(--dark);
+            position:relative; z-index:1;
+        }
+        .section-sub{
+            max-width:520px; margin:12px auto 0;
+            color:#5b6a75; font-size:15.5px;
+            position:relative; z-index:1;
+        }
+ 
+        /* ---- Stat cards ---- */
+        .stats-grid{
+            position:relative; z-index:1;
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+            gap:26px;
+            margin-top:48px;
+        }
+        .stat-card{
+            position:relative;
+            background:white;
+            padding:36px 26px 30px;
+            border-radius:22px;
+            box-shadow:0 15px 40px rgba(15,23,42,.08);
+            transition:box-shadow .35s var(--ease);
+            transform-style:preserve-3d;
+            will-change:transform;
+        }
+        .stat-card::before{
+            content:"";
+            position:absolute; top:0; left:14%; right:14%;
+            height:3px; border-radius:0 0 3px 3px;
+            background:linear-gradient(90deg, var(--primary), #60a5fa);
+            transform:scaleX(0);
+            transform-origin:center;
+            transition:transform .35s var(--ease);
+        }
+        .stat-card:hover{ box-shadow:0 30px 60px -10px rgba(37,99,235,.22); }
+        .stat-card:hover::before{ transform:scaleX(1); }
+ 
+        .stat-badge{
+            width:58px; height:58px; margin:0 auto 16px;
+            border-radius:16px;
+            display:flex; align-items:center; justify-content:center;
+            background:var(--badge, linear-gradient(135deg,#2563eb,#60a5fa));
+            color:white;
+            box-shadow:0 12px 24px -8px rgba(37,99,235,.55);
+            transition:transform .35s var(--ease);
+        }
+        .stat-badge svg{ width:26px; height:26px; }
+        .stat-card:hover .stat-badge{ transform:scale(1.12) rotate(-6deg); }
+ 
+        .stat-card .stat-num{
+            display:block; font-size:38px; font-weight:800;
+            color:var(--dark); margin-bottom:4px;
+        }
+        .stat-card p{ color:#667; font-size:15px; font-weight:600; }
+ 
+        /* ---- Infinite trust marquee ---- */
+        .trust-marquee{
+            position:relative; z-index:1;
+            margin-top:56px;
+            overflow:hidden;
+            border-top:1px solid #e8edf1; border-bottom:1px solid #e8edf1;
+            padding:18px 0;
+            -webkit-mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+            mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+        }
+        .marquee-track{
+            display:flex; gap:46px; width:max-content;
+            animation:marquee 22s linear infinite;
+        }
+        .trust-marquee:hover .marquee-track{ animation-play-state:paused; }
+        .marquee-track span{
+            font-size:14px; font-weight:700; color:#8894a0;
+            letter-spacing:.3px; white-space:nowrap;
+        }
+        .marquee-track span.dot{ color:var(--primary); font-weight:400; }
+        @keyframes marquee{
+            from{ transform:translateX(0); }
+            to{ transform:translateX(-50%); }
+        }
+ 
+        /* ---- Feature carousel ---- */
+        .feature-carousel{
+            position:relative; z-index:1;
+            display:flex; align-items:center; gap:14px;
+            margin-top:48px;
+        }
+        .carousel-track{
+            display:flex; gap:22px;
+            overflow-x:auto;
+            scroll-snap-type:x proximity;
+            scroll-behavior:smooth;
+            padding:6px 4px 20px;
+            flex:1;
+        }
+        .carousel-track::-webkit-scrollbar{ height:0; }
+        .feature-slide{
+            flex:0 0 min(320px, 82vw);
+            scroll-snap-align:start;
+            background:white;
+            border-radius:22px;
+            padding:32px 26px;
+            box-shadow:0 15px 40px rgba(15,23,42,.08);
+            text-align:left;
+            transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+            will-change:transform;
+        }
+        .feature-slide:hover{
+            box-shadow:0 30px 55px -12px rgba(37,99,235,.22);
+        }
+        .feature-illustration{
+            width:56px; height:56px; margin-bottom:18px;
+            border-radius:16px;
+            display:flex; align-items:center; justify-content:center;
+            background:linear-gradient(135deg,#eff4ff,#dbeafe);
+            color:var(--primary);
+            transition:transform .3s var(--ease);
+        }
+        .feature-slide:hover .feature-illustration{ transform:rotate(-8deg) scale(1.08); }
+        .feature-illustration svg{ width:26px; height:26px; }
+        .feature-slide h3{ font-size:18px; color:var(--dark); margin-bottom:8px; }
+        .feature-slide p{ font-size:14.5px; color:#667; line-height:1.6; }
+ 
+        .carousel-arrow{
+            flex-shrink:0;
+            width:44px; height:44px; border-radius:50%;
+            border:1.5px solid #e2e8f0; background:white;
+            font-size:20px; color:var(--primary); cursor:pointer;
+            display:flex; align-items:center; justify-content:center;
+            transition:background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+        }
+        .carousel-arrow:hover{ background:var(--primary); color:white; transform:scale(1.06); }
+ 
+        .carousel-dots{
+            position:relative; z-index:1;
+            display:flex; justify-content:center; gap:8px;
+            margin-top:6px;
+        }
+        .carousel-dots button{
+            width:8px; height:8px; border-radius:999px;
+            border:none; background:#d7dee5; cursor:pointer;
+            transition:width .3s var(--ease), background .3s var(--ease);
+            padding:0;
+        }
+        .carousel-dots button.active{ width:26px; background:var(--primary); }
+ 
+        @media(max-width:640px){
+            .trust, .features{ padding:60px 16px; }
+        }
+ 
+        /* ============ FORM ============ */
+        .form-section{
+            padding:70px 20px;
+            text-align:center;
+        }
+ 
+        .form-card{
+            max-width:480px;
+            margin:40px auto 0;
+            background:white;
+            padding:40px 34px;
+            border-radius:22px;
+            box-shadow:0 25px 60px -20px rgba(15,23,42,.18);
+        }
+ 
+        form{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+ 
+        input, select, textarea{
+            padding:15px;
+            font-size:16px;
+            border:1.5px solid #ddd;
+            border-radius:10px;
+            width:100%;
+            transition:border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease);
+        }
+        input:focus, select:focus, textarea:focus{
+            outline:none;
+            border-color:var(--primary);
+            box-shadow:0 0 0 4px rgba(37,99,235,.15);
+            transform:translateY(-1px);
+        }
+ 
+        button{
+            position:relative;
+            overflow:hidden;
+            padding:16px;
+            background:var(--primary);
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:700;
+            cursor:pointer;
+            transition:background .25s var(--ease), transform .2s var(--ease), box-shadow .25s var(--ease);
+        }
+        button:hover{
+            background:var(--primary-dark);
+            transform:translateY(-2px);
+            box-shadow:0 14px 26px -10px rgba(37,99,235,.55);
+        }
+        button::after{
+            content:"";
+            position:absolute;
+            top:0; left:-60%;
+            width:40%; height:100%;
+            background:linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+            transform:skewX(-20deg);
+            transition:left .6s var(--ease);
+        }
+        button:hover::after{ left:130%; }
+ 
+        #thankYouMessage{
+            margin-top:25px;
+            color:#15803d;
+            font-weight:bold;
+            animation:fadeUp .5s var(--ease) both;
+        }
+ 
+        /* ============ FAQ ============ */
+        .faq{
+            background:white;
+            padding:70px 20px;
+        }
+        .faq h2{
+            text-align:center;
+            font-size:32px;
+            font-weight:800;
+            color:var(--dark);
+            margin-bottom:35px;
+        }
+        .faq-list{
+            max-width:700px;
+            margin:0 auto;
+            display:flex;
+            flex-direction:column;
+            gap:14px;
+        }
+        .faq-item{
+            border:1.5px solid #e5e7eb;
+            border-radius:14px;
+            overflow:hidden;
+            transition:border-color .25s var(--ease), box-shadow .25s var(--ease);
+        }
+        .faq-item:hover{
+            border-color:rgba(37,99,235,.35);
+            box-shadow:0 10px 24px -14px rgba(37,99,235,.25);
+        }
+        .faq-question{
+            width:100%;
+            text-align:left;
+            background:white;
+            border:none;
+            padding:18px 22px;
+            font-size:16px;
+            font-weight:700;
+            color:var(--dark);
+            cursor:pointer;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+        }
+        .faq-question .plus{
+            flex-shrink:0;
+            width:22px;
+            height:22px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:var(--primary);
+            font-size:20px;
+            font-weight:800;
+            transition:transform .3s var(--ease);
+        }
+        .faq-item.open .faq-question .plus{ transform:rotate(45deg); }
+ 
+        .faq-answer{
+            max-height:0;
+            overflow:hidden;
+            transition:max-height .35s var(--ease);
+        }
+        .faq-answer p{
+            padding:0 22px 20px;
+            color:#555;
+            font-size:15px;
+        }
+ 
+        /* ============ FOOTER ============ */
+        footer{
+            background:var(--dark);
+            color:white;
+            padding:60px 20px;
+            text-align:center;
+            margin-top:60px;
+            position:relative;
+        }
+        footer::before{
+            content:"";
+            position:absolute;
+            top:0; left:0; right:0;
+            height:3px;
+            background:linear-gradient(90deg, var(--primary), #60a5fa, var(--primary));
+        }
+        footer h3{ margin-bottom:10px; }
+        footer p{ color:rgba(255,255,255,.75); }
+ 
+        @media(max-width:768px){
+            .hero h1{ font-size:32px; }
+            .hero p{ font-size:17px; }
+            .stats{ flex-direction:column; align-items:center; }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-    <div class="container nav-container">
-        <div class="logo">NAMOZA</div>
-
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#trust">Clinics</a></li>
-            <li><a href="#consultation-form">Consultation</a></li>
-            <li><a href="#faq">FAQ</a></li>
-        </ul>
-
-        <a href="#consultation-form" class="nav-btn">
-            Book Now
-        </a>
-    </div>
-</nav>
-
-    <header class="hero">
-    <div class="container">
-
-        <span class="badge">
-            Trusted by 10,000+ Patients
-        </span>
-
-        <h1>
-            Get Expert Orthopaedic Advice
-            Without Waiting Weeks
-        </h1>
-
-        <p>
-            Book a consultation with experienced orthopaedic specialists across Bangalore.
-        </p>
-
-        <a href="#consultation-form" class="btn">
-            Book Consultation
-        </a>
-
-    </div>
-</header>
-    <section id="trust" class="trust">
-    <div class="container">
-
-        <h2>Why Choose Namoza?</h2>
-
-        <div class="stats">
-
-            <div class="card">
-                <h3>🏥</h3>
-                <h2>9+</h2>
-                <p>Clinics Across Bangalore</p>
-            </div>
-
-            <div class="card">
-                <h3>😊</h3>
-                <h2>10,000+</h2>
-                <p>Patients Treated</p>
-            </div>
-
-            <div class="card">
-                <h3>⭐</h3>
-                <h2>4.9/5</h2>
-                <p>Patient Satisfaction</p>
-            </div>
-
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">NAMOZA</div>
+ 
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#trust">Clinics</a></li>
+                <li><a href="#consultation-form">Consultation</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+ 
+            <a href="#consultation-form" class="nav-btn">Book Now</a>
         </div>
-
-    </div>
-</section>
-<section class="features">
-
-<div class="container">
-
-<h2>Why Choose Namoza?</h2>
-
-<div class="stats">
-
-<div class="card">
-<h3>⚡</h3>
-<p>Same Day Consultation</p>
-</div>
-
-<div class="card">
-<h3>👨‍⚕️</h3>
-<p>Experienced Specialists</p>
-</div>
-
-<div class="card">
-<h3>📍</h3>
-<p>9 Clinics Across Bangalore</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-<section id="consultation-form" class="form-section">
-    <div class="container">
-
-        <h2>Book Your Consultation</h2>
-        <p>Fill in your details and our team will contact you shortly.</p>
-
-        <form id="leadForm">
-
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-                required
-            >
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="Enter your phone number"
-                required
-            >
-            <select required>
-
-<option>Select Clinic</option>
-
-<option>Indiranagar</option>
-
-<option>Whitefield</option>
-
-<option>Koramangala</option>
-
-</select>
-
-<input type="date" required>
-
-<textarea
-placeholder="Describe your problem (Optional)">
-</textarea>
-
-            <button type="submit">
-                Book Consultation
-            </button>
-
-        </form>
-
-        <div id="thankYouMessage" style="display:none;">
-    <h2>🎉 Consultation Booked!</h2>
-    <p>Our orthopaedic team will contact you within 24 hours.</p>
-</div>
-
-    </div>
-</section>
-<footer>
-
-<div class="container">
-
-<h3>Namoza</h3>
-
-<p>
-Helping patients connect with expert orthopaedic specialists.
-</p>
-
-<p>
-© 2026 Namoza Healthcare
-</p>
-
-</div>
-
-</footer>
-<script>
-
-window.dataLayer = window.dataLayer || [];
-
-document.getElementById("leadForm").addEventListener("submit", function(e){
-
-e.preventDefault();
-
-const name = document.getElementById("name").value.trim();
-const phone = document.getElementById("phone").value.trim();
-
-if(name.length < 3){
-alert("Please enter a valid name.");
-return;
-}
-
-if(!/^[0-9]{10}$/.test(phone)){
-alert("Please enter a valid 10-digit phone number.");
-return;
-}
-
-dataLayer.push({
-event:"consultation_form_submitted",
-name:name,
-phone:phone
-});
-
-this.style.display="none";
-
-document.getElementById("thankYouMessage").style.display="block";
-
-});
-
-</script>
-
+    </nav>
+ 
+    <header class="hero">
+        <div class="container">
+            <span class="badge">Trusted by 10,000+ Patients</span>
+            <h1>Get Expert Orthopaedic Advice<br>Without Waiting Weeks</h1>
+            <p>Book a consultation with experienced orthopaedic specialists across Bangalore.</p>
+            <a href="#consultation-form" class="btn">Book Consultation</a>
+        </div>
+    </header>
+ 
+    <section id="trust" class="trust">
+        <div class="trust-decor" id="trustDecor"></div>
+        <div class="container" style="padding:0;">
+            <span class="section-tag reveal">Trusted Orthopaedic Care</span>
+            <h2 class="reveal">Why Choose Namoza?</h2>
+            <p class="section-sub reveal">Numbers that reflect consistent, specialist-led orthopaedic care across Bangalore — not a one-off consultation, but ongoing care you can rely on.</p>
+ 
+            <div class="stats-grid">
+                <div class="stat-card reveal" data-tilt>
+                    <div class="stat-badge" style="--badge:linear-gradient(135deg,#2563eb,#60a5fa)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg>
+                    </div>
+                    <span class="stat-num" data-count="9" data-suffix="+">0</span>
+                    <p>Clinics Across Bangalore</p>
+                </div>
+ 
+                <div class="stat-card reveal" data-tilt>
+                    <div class="stat-badge" style="--badge:linear-gradient(135deg,#0ea5a4,#5eead4)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <span class="stat-num" data-count="10000" data-suffix="+">0</span>
+                    <p>Patients Treated</p>
+                </div>
+ 
+                <div class="stat-card reveal" data-tilt>
+                    <div class="stat-badge" style="--badge:linear-gradient(135deg,#f59e0b,#fbbf24)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+                    </div>
+                    <span class="stat-num" data-decimal="4.9">0</span>
+                    <p>Patient Satisfaction</p>
+                </div>
+            </div>
+ 
+            <div class="trust-marquee reveal">
+                <div class="marquee-track" id="marqueeTrack">
+                    <span>Indiranagar</span><span class="dot">•</span>
+                    <span>Whitefield</span><span class="dot">•</span>
+                    <span>Koramangala</span><span class="dot">•</span>
+                    <span>HSR Layout</span><span class="dot">•</span>
+                    <span>Jayanagar</span><span class="dot">•</span>
+                    <span>Marathahalli</span><span class="dot">•</span>
+                    <span>Hebbal</span><span class="dot">•</span>
+                    <span>Electronic City</span><span class="dot">•</span>
+                    <span>Yelahanka</span><span class="dot">•</span>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="features">
+        <div class="features-decor" id="featuresDecor"></div>
+        <div class="container" style="padding:0;">
+            <span class="section-tag reveal">The Namoza Difference</span>
+            <h2 class="reveal">What Makes Us Different</h2>
+            <p class="section-sub reveal">Everything here exists to remove a reason to put off the appointment.</p>
+ 
+            <div class="feature-carousel reveal">
+                <button class="carousel-arrow" id="carouselPrev" aria-label="Previous">‹</button>
+                <div class="carousel-track" id="featureTrack">
+                    <div class="feature-slide">
+                        <div class="feature-illustration">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+                        </div>
+                        <h3>Same Day Consultation</h3>
+                        <p>Most patients are seen within 24 hours — no weeks-long wait for a first opinion on pain that's already slowing you down.</p>
+                    </div>
+                    <div class="feature-slide">
+                        <div class="feature-illustration">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <h3>Experienced Specialists</h3>
+                        <p>Fellowship-trained orthopaedic surgeons lead every consultation — not a general physician doing triage.</p>
+                    </div>
+                    <div class="feature-slide">
+                        <div class="feature-illustration">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7-7"/></svg>
+                        </div>
+                        <h3>9 Clinics Across Bangalore</h3>
+                        <p>A location near your home or office, with consistent care and shared records wherever you go.</p>
+                    </div>
+                    <div class="feature-slide">
+                        <div class="feature-illustration">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 4v14"/></svg>
+                        </div>
+                        <h3>In-House Diagnostics</h3>
+                        <p>X-ray and imaging on site at most clinics, so you leave with answers instead of a referral slip.</p>
+                    </div>
+                </div>
+                <button class="carousel-arrow" id="carouselNext" aria-label="Next">›</button>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+ 
+    <section id="consultation-form" class="form-section">
+        <div class="container">
+            <h2 class="reveal">Book Your Consultation</h2>
+            <p class="reveal">Fill in your details and our team will contact you shortly.</p>
+ 
+            <div class="form-card reveal">
+                <form id="leadForm">
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+ 
+                    <select id="clinic" required>
+                        <option value="">Select Clinic</option>
+                        <option>Indiranagar</option>
+                        <option>Whitefield</option>
+                        <option>Koramangala</option>
+                    </select>
+ 
+                    <input type="date" id="preferredDate" required>
+ 
+                    <textarea id="notes" placeholder="Describe your problem (Optional)"></textarea>
+ 
+                    <button type="submit">Book Consultation</button>
+                </form>
+ 
+                <div id="thankYouMessage" style="display:none;">
+                    <h2>🎉 Consultation Booked!</h2>
+                    <p>Our orthopaedic team will contact you within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="faq" class="faq">
+        <div class="container" style="padding:0;">
+            <h2 class="reveal">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Do I need a referral to book a consultation?
+                        <span class="plus">+</span>
+                    </button>
+                    <div class="faq-answer"><p>No referral needed. You can book directly with any of our orthopaedic specialists across our 9 clinics.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Will I be pushed toward surgery?
+                        <span class="plus">+</span>
+                    </button>
+                    <div class="faq-answer"><p>No. Our specialists diagnose first and explore non-surgical options — physiotherapy, medication, lifestyle changes — before surgery is ever discussed.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        How soon can I get an appointment?
+                        <span class="plus">+</span>
+                    </button>
+                    <div class="faq-answer"><p>Most patients are seen within 24-48 hours, with evening and weekend slots available at select clinics.</p></div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Do you accept insurance?
+                        <span class="plus">+</span>
+                    </button>
+                    <div class="faq-answer"><p>Yes, we work with most major insurance providers. Our coordinator will confirm your specific coverage when they call you back.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <footer>
+        <div class="container">
+            <h3>Namoza</h3>
+            <p>Helping patients connect with expert orthopaedic specialists.</p>
+            <p>© 2026 Namoza Healthcare</p>
+        </div>
+    </footer>
+ 
+    <script>
+        window.dataLayer = window.dataLayer || [];
+ 
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ 
+        /* ---------- Navbar shadow on scroll ---------- */
+        var navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function(){
+            navbar.classList.toggle('scrolled', window.scrollY > 10);
+        });
+ 
+        /* ---------- Scroll reveal ---------- */
+        var revealEls = document.querySelectorAll('.reveal');
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+        } else {
+            var revealObserver = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if (entry.isIntersecting){
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach(function(el){ revealObserver.observe(el); });
+        }
+ 
+        /* ---------- Animated counters ---------- */
+        function animateCount(el){
+            var decimal = el.dataset.decimal ? parseFloat(el.dataset.decimal) : null;
+            var target = el.dataset.count ? parseInt(el.dataset.count, 10) : null;
+            var suffix = el.dataset.suffix || '';
+ 
+            if (decimal !== null){
+                el.textContent = decimal.toFixed(1);
+                return;
+            }
+            if (target === null) return;
+ 
+            var start = performance.now();
+            var duration = 1100;
+ 
+            function tick(now){
+                var progress = Math.min((now - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(target * eased).toLocaleString('en-IN') + suffix;
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+ 
+        var counters = document.querySelectorAll('.stat-num');
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            counters.forEach(animateCount);
+        } else {
+            var counterObserver = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if (entry.isIntersecting){
+                        animateCount(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(function(el){ counterObserver.observe(el); });
+        }
+ 
+        /* ---------- Parallax decorative blobs ---------- */
+        var parallaxEls = [document.getElementById('trustDecor'), document.getElementById('featuresDecor')].filter(Boolean);
+        if (!prefersReducedMotion && parallaxEls.length) {
+            var ticking = false;
+            window.addEventListener('scroll', function(){
+                if (!ticking) {
+                    requestAnimationFrame(function(){
+                        parallaxEls.forEach(function(el){
+                            var rect = el.parentElement.getBoundingClientRect();
+                            var offset = rect.top * 0.12; // slower than scroll = parallax
+                            el.style.transform = 'translateY(' + offset + 'px)';
+                        });
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        }
+ 
+        /* ---------- Mousemove tilt on [data-tilt] cards ---------- */
+        var isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+        if (!prefersReducedMotion && !isCoarsePointer) {
+            document.querySelectorAll('[data-tilt]').forEach(function(card){
+                card.addEventListener('mousemove', function(e){
+                    var rect = card.getBoundingClientRect();
+                    var x = (e.clientX - rect.left) / rect.width - 0.5;
+                    var y = (e.clientY - rect.top) / rect.height - 0.5;
+                    card.style.transform = 'perspective(600px) rotateY(' + (x * 8) + 'deg) rotateX(' + (y * -8) + 'deg) translateY(-4px)';
+                });
+                card.addEventListener('mouseleave', function(){
+                    card.style.transform = 'perspective(600px) rotateY(0) rotateX(0) translateY(0)';
+                });
+            });
+        }
+ 
+        /* ---------- Feature carousel ---------- */
+        (function(){
+            var track = document.getElementById('featureTrack');
+            var dotsWrap = document.getElementById('carouselDots');
+            var prevBtn = document.getElementById('carouselPrev');
+            var nextBtn = document.getElementById('carouselNext');
+            if (!track) return;
+ 
+            var slides = Array.from(track.children);
+            slides.forEach(function(_, i){
+                var dot = document.createElement('button');
+                dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', function(){
+                    slides[i].scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', inline: 'start', block: 'nearest' });
+                });
+                dotsWrap.appendChild(dot);
+            });
+            var dots = Array.from(dotsWrap.children);
+ 
+            function slideWidth(){ return slides[0].getBoundingClientRect().width + 22; /* gap */ }
+            prevBtn.addEventListener('click', function(){ track.scrollBy({ left: -slideWidth(), behavior: 'smooth' }); });
+            nextBtn.addEventListener('click', function(){ track.scrollBy({ left: slideWidth(), behavior: 'smooth' }); });
+ 
+            var scrollTicking = false;
+            track.addEventListener('scroll', function(){
+                if (scrollTicking) return;
+                scrollTicking = true;
+                requestAnimationFrame(function(){
+                    var index = Math.round(track.scrollLeft / slideWidth());
+                    dots.forEach(function(d, i){ d.classList.toggle('active', i === index); });
+                    scrollTicking = false;
+                });
+            });
+        })();
+ 
+        /* ---------- FAQ accordion ---------- */
+        document.querySelectorAll('.faq-item').forEach(function(item){
+            var question = item.querySelector('.faq-question');
+            var answer = item.querySelector('.faq-answer');
+            question.addEventListener('click', function(){
+                var isOpen = item.classList.contains('open');
+                // close any other open item (one open at a time, cleaner UX)
+                document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+                    if (openItem !== item){
+                        openItem.classList.remove('open');
+                        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        openItem.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+                item.classList.toggle('open', !isOpen);
+                question.setAttribute('aria-expanded', String(!isOpen));
+                answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
+            });
+        });
+ 
+        /* ---------- Form submit ---------- */
+        document.getElementById("leadForm").addEventListener("submit", function(e){
+            e.preventDefault();
+ 
+            var name = document.getElementById("name").value.trim();
+            var phone = document.getElementById("phone").value.trim();
+            var clinic = document.getElementById("clinic").value;
+ 
+            if (name.length < 3){
+                alert("Please enter a valid name.");
+                return;
+            }
+            if (!/^[0-9]{10}$/.test(phone)){
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
+            if (!clinic){
+                alert("Please select a clinic.");
+                return;
+            }
+ 
+            // GTM/GA4/Ads dataLayer push — deliberately no name or phone here.
+            // GA4 and Google Ads only need to know a conversion happened and
+            // roughly where it came from, not who the patient is. This mirrors
+            // the params defined in GTM-Schema.md and Integration-Design.md.
+            dataLayer.push({
+                event: "consultation_form_submitted",
+                clinic: clinic,
+                lead_source: "google_ads_consultation_landing_page",
+                page_path: window.location.pathname
+            });
+ 
+            // In production: this is where the actual name/phone go — via a
+            // direct POST to a backend endpoint (see Integration-Design.md,
+            // POST /api/leads), which does the HubSpot phone-lookup and
+            // Karix WhatsApp send. They never touch the dataLayer.
+            //
+            // fetch('/api/leads', {
+            //   method: 'POST',
+            //   headers: { 'Content-Type': 'application/json' },
+            //   body: JSON.stringify({ name: name, phone: phone, clinic: clinic, lead_source: 'google_ads_consultation_landing_page' })
+            // });
+ 
+            this.style.display = "none";
+            document.getElementById("thankYouMessage").style.display = "block";
+        });
+    </script>
 </body>
 </html>
