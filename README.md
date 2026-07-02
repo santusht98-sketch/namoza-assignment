@@ -17,10 +17,16 @@ namoza-assignment/
 ├── task3/
 │   └── Integration-Design.md    # HubSpot / WhatsApp / Ads integration architecture (written answer)
 ├── screenshots/
-│   └── pagespeed-mobile.png     # PageSpeed Insights mobile score for task2/index.html
-├── bonus/                       # Not part of the required deliverables — extra exploration
-│   ├── clinic-page-template.html
-│   └── blog-article-template.html
+│   ├── mobile/                  # Mobile view screenshots
+│   │   ├── 01-hero.jpeg
+│   │   ├── 02-form.jpeg
+│   │   └── 03-faq.jpeg
+│   └── desktop/                 # Desktop view + Lighthouse screenshots
+│       ├── 01-hero.png
+│       ├── 02-form.png
+│       ├── 03-faq.png
+│       ├── 04-pagespeed-desktop.png
+│       └── 05-pagespeed-mobile.png
 └── README.md
 
 
@@ -34,7 +40,25 @@ Full event tracking schema for OrthoNow's site: event names, GTM trigger types, 
 ### Task 2 — [Consultation Landing Page](./task2/index.html)
 Rebuild of OrthoNow's "Book a Consultation" landing page for the campaign *"Get an expert orthopaedic opinion — Book your consultation at OrthoNow."* Single HTML file, vanilla JS, no frameworks or external assets. The form submit fires a `consultation_form_submitted` dataLayer push (visible live in the browser console) and swaps to a thank-you state without a page reload.
 
-**PageSpeed Mobile score:** see [`screenshots/pagespeed-mobile.png`](./screenshots/pagespeed-mobile.png)
+**PageSpeed Mobile score:** see [`screenshots/desktop/05-pagespeed-mobile.png`](./screenshots/desktop/05-pagespeed-mobile.png)
+
+## Screenshots
+
+### Mobile
+![Hero](screenshots/mobile/01-hero.jpeg)
+![Booking Form](screenshots/mobile/02-form.jpeg)
+![FAQ](screenshots/mobile/03-faq.jpeg)
+
+### Desktop
+![Hero](screenshots/desktop/01-hero.png)
+![Booking Form](screenshots/desktop/02-form.png)
+![FAQ](screenshots/desktop/03-faq.png)
+
+### Lighthouse Scores
+![Desktop PageSpeed](screenshots/desktop/04-pagespeed-desktop.png)
+![Mobile PageSpeed](screenshots/desktop/05-pagespeed-mobile.png)
+
+---
 
 ### Task 3 — [Integration Design](./task3/Integration-Design.md)
 Written architecture for connecting the landing page to HubSpot CRM and the Karix WhatsApp Business API: why a direct backend API call was chosen over the HubSpot Forms API / Zapier / Make, the phone-number deduplication trap (HubSpot dedups on email; this form only collects phone), the fallback for the biggest failure point, and how the 2-minute WhatsApp SLA is monitored.
