@@ -4,7 +4,7 @@ Submission for the Namoza Developer Assignment — Developer, Position 1 (Client
 Client scenario: OrthoNow, a 9-clinic orthopaedic chain across Bengaluru, Hyderabad, and Chennai.
 
 **Live demo:** https://santusht98-sketch.github.io/namoza-assignment/task2/index.html
-**Loom walkthrough:** [add your Loom link here]
+**Loom walkthrough:** https://www.loom.com/share/62a1134690104796bc1462677f2ce59a
 
 ---
 
@@ -90,4 +90,4 @@ Open the browser console before submitting the form to see the `consultation_for
 ## Author
 
 Santusht
-[GitHub profile link] · [santusht98@gmail.com] 
+[https://github.com/santusht98-sketch] · [santusht98@gmail.com] 
