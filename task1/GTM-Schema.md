@@ -127,8 +127,8 @@ This funnel helps identify where users abandon the booking journey so the market
 
 ## Validation Checklist
 
-- [ ] Event names follow naming convention
-- [ ] dataLayer events tested
+- [x] Event names follow naming convention
+- [x] dataLayer events tested
 - [ ] GTM Preview mode verified
 - [ ] GA4 DebugView verified
 - [ ] Google Ads conversion configured
