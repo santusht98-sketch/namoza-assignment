@@ -90,4 +90,4 @@ Open the browser console before submitting the form to see the `consultation_for
 ## Author
 
 Santusht
-[GitHub profile link] · [email or LinkedIn, optional]
+[GitHub profile link] · [santusht98@gmail.com]
